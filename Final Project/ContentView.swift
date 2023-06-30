@@ -6,24 +6,79 @@
 //
 
 import SwiftUI
-
+let backgroundGradient = LinearGradient(
+    gradient: Gradient(colors: [Color.pink, Color.pink]),
+    startPoint: .top, endPoint: .bottom)
+//let backgroundColor = Color.blue
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-            Text("Hello, world!")
-            Text("Hello, world!!")
-            Text("Hello, world!!")
+        NavigationStack {
+            ZStack(){
+                
+                backgroundGradient
+                    .ignoresSafeArea()
+//                Color.blue
+//                    .edgesIgnoringSafeArea(.all)
+                VStack() {
+                    Spacer()
+                        .frame(height: 300.0)
+                    Image("Mediterranean 1")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width:400)
+                    NavigationLink(destination: second()) {
+                        Text("greek")
+                  
+                    }
+                                
+               
+                    
+                    
+                    Image("dessert")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .padding(.top, 13.0)
+                    Text("dessert")
+                        .padding(.leading)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    
+                    Image("southern")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .foregroundColor(Color.black)
+                    Text("southern")
+                        .padding([.leading, .bottom, .trailing], 19.0)
+                    //                            .multilineTextAlignment(.leading)
+                    
+                }
+                
+                
+                
+                
+                //            .padding()
+                .navigationTitle("SALT")
+                .navigationBarTitleDisplayMode(.inline)
+                .multilineTextAlignment(.leading)
+                //            .font(.title)
+                //            NavigationLink(destination: Second()) {
+                //                Text ("recipes to try")
+                //                    .font (.title)
+                //                    .multilineTextAlignment(.leading)
+                //
+                //            }
+            }
+            .ignoresSafeArea()
         }
-        .padding()
+        
+        
+           
+            
     }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+    struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            ContentView()
+        }
     }
+    
 }
